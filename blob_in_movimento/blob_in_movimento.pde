@@ -1,5 +1,6 @@
 ArrayList<Blob> blobs = new ArrayList<Blob>();
 float t = 0; // Parametro del tempo per l'animazione
+String[] colors = {"FCA491", "FBD701", "36A1CB", "F55243", "2C2A2B", "9DC9EC"};
 
 void setup() {
   size(1800, 1200); // Dimensione del canvas
@@ -78,6 +79,7 @@ class Blob {
   float noiseFactor;
   float rotation;
   float lerpAmt = 0.0;
+    int col; // Proprietà per il colore del blob
 
   Blob(float x, float y, float radius) {
     this.x = x;
@@ -87,7 +89,7 @@ class Blob {
     this.radius = radius;
     this.noiseFactor = random(0.5, 2);
     this.rotation = random(TWO_PI);
-  }
+    this.col = unhex("FF" + colors[int(random(colors.length))]);  }
 
   void updatePosition() {
     if (lerpAmt < 1) {
@@ -101,6 +103,8 @@ class Blob {
     pushMatrix();
     translate(x, y);
     rotate(rotation);
+    noStroke();
+        fill(col); // Utilizza il colore assegnato per riempire il blob
     drawBlob(0, 0, radius, t, noiseFactor);
     popMatrix();
   }
