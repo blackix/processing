@@ -1,3 +1,4 @@
+
 ArrayList<Blob> blobs = new ArrayList<Blob>();
 float t = 0; // Parametro del tempo per l'animazione
 String[] colors = {"FCA491", "FBD701", "36A1CB", "F55243", "2C2A2B", "9DC9EC"};
